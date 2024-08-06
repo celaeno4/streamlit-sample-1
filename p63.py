@@ -1,5 +1,5 @@
 import os
-import tiktoken
+# import tiktoken
 import streamlit as st
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
@@ -86,7 +86,7 @@ def init_chain():
     output_parser = StrOutputParser()
     return prompt | st.session_state.llm | output_parser
 
-
+"""
 def get_message_counts(text):
     if "gemini" in st.session_state.model_name:
         return st.session_state.llm.get_num_tokens(text)
@@ -98,7 +98,6 @@ def get_message_counts(text):
         else:
             encoding = tiktoken.encoding_for_model("gpt-3.5-turbo")  # 仮のものを利用
         return len(encoding.encode(text))
-
 
 def calc_and_display_costs():
     output_count = 0
@@ -127,7 +126,7 @@ def calc_and_display_costs():
     st.sidebar.markdown(f"**Total cost: ${cost:.5f}**")
     st.sidebar.markdown(f"- Input cost: ${input_cost:.5f}")
     st.sidebar.markdown(f"- Output cost: ${output_cost:.5f}")
-
+"""
 
 def main():
     init_page()
@@ -151,7 +150,7 @@ def main():
         st.session_state.message_history.append(("ai", response))
 
     # コストを計算して表示
-    calc_and_display_costs()
+    # calc_and_display_costs()
 
 
 if __name__ == '__main__':
